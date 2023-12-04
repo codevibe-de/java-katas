@@ -5,22 +5,30 @@ import java.time.*;
 public class DateTimeLogic {
 
     public LocalDate createDateForThisYearsXmas() {
-        return null;
+        return LocalDate.now().withMonth(Month.DECEMBER.getValue()).withDayOfMonth(24);
     }
 
     public ZonedDateTime convertToSydneyZone(ZonedDateTime input) {
-        return null;
+        return input.withZoneSameInstant(ZoneId.of("Australia/Sydney"));
     }
 
     public LocalDate parseAndPostponeForTwoWeeks(String input) {
-        return null;
+        var date = LocalDate.parse(input);
+        return date.plusWeeks(2);
     }
 
     public String printIntervalBetweenInstantsInEnglishNotation(LocalDateTime input1, LocalDateTime input2) {
-        return null;
+        var duration = Duration.between(input1, input2);
+        var hours = duration.toHours();
+        duration = duration.minusHours(hours);
+        var minutes = duration.toMinutes();
+        duration = duration.minusMinutes(minutes);
+        return String.format("%dh %d' %d\"",
+                hours, minutes, duration.toSeconds());
     }
 
     public int calculateDaysInMonth(int year, int month) {
-        return 0;
+        YearMonth yearMonthObject = YearMonth.of(year, month);
+        return yearMonthObject.lengthOfMonth();
     }
 }

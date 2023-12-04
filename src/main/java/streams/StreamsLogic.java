@@ -8,45 +8,68 @@ import java.util.stream.Stream;
 public class StreamsLogic {
 
     public List<String> mapToUppercase(List<String> input) {
-        return null;
+        return input.stream()
+                .map(String::toUpperCase)
+                .toList();
     }
 
     public List<String> removeElementsWithFourOrMoreCharacters(List<String> input) {
-        return null;
+        return input.stream()
+                .filter(s -> s.length() < 4)
+                .toList();
     }
 
     public Stream<String> sortStrings(List<String> input) {
-        return null;
+        return input.stream().sorted();
     }
 
     public List<Integer> sortIntegers(List<String> input) {
-        return null;
+        return input.stream()
+                .map(Integer::parseInt)
+                .sorted()
+                .toList();
     }
 
     public Integer sum(List<Integer> input) {
-        return null;
+        return input.stream()
+                .mapToInt(n -> n)
+                .sum();
     }
 
     public List<Integer> sortListsOfIntegersInDescendingOrder(List<List<String>> listOfLists) {
-        return null;
+        return listOfLists.stream()
+                .flatMap(Collection::stream)
+                .map(Integer::parseInt)
+                .sorted(Comparator.reverseOrder())
+                .toList();
     }
 
     public IntStream transformIntoIntStream(Integer[] input1, int numbersFrom, int numbersUpTo) {
-        return null;
+        return Stream.concat(
+                Arrays.stream(input1),
+                IntStream.rangeClosed(numbersFrom, numbersUpTo).boxed()
+        ).mapToInt(n -> n);
     }
 
     // digit sum == Quersumme
-    // hint: use Character.digit()
     public Integer calculateDigitSum(Integer input) {
-        return null;
+        return input.toString()
+                .chars()
+                .map(ch -> Character.digit(ch, 10))
+                .reduce(0, Integer::sum);
     }
 
     public Set<String> getCheckingAccountWithNegativeBalance(List<Account> accounts) {
-        return null;
+        return accounts.stream()
+                .filter(a -> a.type() == Account.AccountType.CHECKING)
+                .filter(a -> a.balance() < 0)
+                .map(Account::number)
+                .collect(Collectors.toSet());
     }
 
     public Map<Person, List<Account>> groupByHolder(List<Account> accounts) {
-        return null;
+        return accounts.stream()
+                .collect(Collectors.groupingBy(Account::holder));
     }
 
 }
