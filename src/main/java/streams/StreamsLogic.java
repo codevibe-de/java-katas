@@ -32,7 +32,11 @@ public class StreamsLogic {
         return null;
     }
 
-    public IntStream transformIntoIntStream(Integer[] input1, int numbersFrom, int numbersUpTo) {
+    /**
+     * This method should provide an IntStream, which contains the values of the given array
+     * plus all numbers in the sequence that is defined with numbersFrom and numbersUpTo.
+     */
+    public IntStream transformIntoIntStream(Integer[] arrayOfInts, int numbersFrom, int numbersUpTo) {
         return null;
     }
 
