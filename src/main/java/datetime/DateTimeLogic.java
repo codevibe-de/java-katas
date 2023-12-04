@@ -21,6 +21,6 @@ public class DateTimeLogic {
     }
 
     public int calculateDaysInMonth(int year, int month) {
-        return null;
+        return 0;
     }
 }
