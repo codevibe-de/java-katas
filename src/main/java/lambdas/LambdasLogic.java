@@ -3,7 +3,7 @@ package lambdas;
 import java.util.Set;
 import java.util.function.*;
 
-public class LambasLogic {
+public class LambdasLogic {
 
     public Supplier<String> generateSupplier(String stringToSupply) {
         return null;
