@@ -1,7 +1,8 @@
 package streams;
 
-import java.util.*;
-import java.util.stream.Collectors;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
@@ -44,6 +45,10 @@ public class StreamsLogic {
                 .toList();
     }
 
+    /**
+     * This method should provide an IntStream, which contains the values of the given array
+     * plus all numbers in the sequence that is defined with numbersFrom and numbersUpTo.
+     */
     public IntStream transformIntoIntStream(Integer[] input1, int numbersFrom, int numbersUpTo) {
         return Stream.concat(
                 Arrays.stream(input1),
