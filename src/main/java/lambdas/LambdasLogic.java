@@ -6,22 +6,32 @@ import java.util.function.*;
 public class LambdasLogic {
 
     public Supplier<String> generateSupplier(String stringToSupply) {
-        return null;
+        return () -> stringToSupply;
     }
 
     public Consumer<Integer> generateConsumer(Set<Integer> collectingSet) {
-        return null;
+        return collectingSet::add; // return n -> collectingSet.add(n);
     }
 
+
     public Function<Integer, String> generatePrefixingFunction(String prefix) {
-        return null;
+        return n -> prefix + n;
     }
 
     public void performTransformationPipeline(Supplier<Integer> supplier, Predicate<Integer> predicate, Consumer<Integer> consumer) {
+        while (true) {
+            var item = supplier.get();
+            if (item == null) {
+                return;
+            }
+            if (predicate.test(item)) {
+                consumer.accept(item);
+            }
+        }
     }
 
     public BiFunction<String, Integer, String> getStringRepeaterMethodReference() {
-        return null;
+        return this::repeatString;
     }
 
     private String repeatString(String s, int count) {
