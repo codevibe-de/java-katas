@@ -39,9 +39,9 @@ class LambdasLogicTest {
     @Test
     void shouldPerformTransformationPipeline() {
         // given
-        ArrayDeque<Integer> numbers = new ArrayDeque<>(List.of(1, 2, 3, 4, 5));
+        List<Integer> numbers = new ArrayList<>(List.of(1, 2, 3, 4, 5));
         List<Integer> collectingList = new ArrayList<>();
-        Supplier<Integer> supplier = () -> numbers.isEmpty() ? null : numbers.pop();
+        Supplier<Integer> supplier = () -> numbers.isEmpty() ? null : numbers.remove(0);
         Predicate<Integer> predicate = (n) -> n % 2 == 0;
         Consumer<Integer> consumer = (n) -> collectingList.add(n);
         // when
