@@ -2,7 +2,10 @@ package lambdas;
 
 import org.junit.jupiter.api.Test;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 import java.util.function.*;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -39,9 +42,9 @@ class LambdasLogicTest {
     @Test
     void shouldPerformTransformationPipeline() {
         // given
-        ArrayDeque<Integer> numbers = new ArrayDeque<>(List.of(1, 2, 3, 4, 5));
+        List<Integer> numbers = new ArrayList<>(List.of(1, 2, 3, 4, 5));
         List<Integer> collectingList = new ArrayList<>();
-        Supplier<Integer> supplier = () -> numbers.isEmpty() ? null : numbers.pop();
+        Supplier<Integer> supplier = () -> numbers.isEmpty() ? null : numbers.remove(0);
         Predicate<Integer> predicate = (n) -> n % 2 == 0;
         Consumer<Integer> consumer = (n) -> collectingList.add(n);
         // when
