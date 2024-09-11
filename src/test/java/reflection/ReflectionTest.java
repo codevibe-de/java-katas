@@ -62,8 +62,8 @@ public class ReflectionTest {
 
 
     /**
-     * The {@link Class#getMethods()} method returns the methods that are declared in the class itself and inherited from
-     * its superclasses.
+     * The {@link Class#getMethods()} method returns the methods that are declared in the class itself and those that are
+     * inherited from its superclasses.
      */
     @Test
     void getMethods() {
@@ -87,6 +87,9 @@ public class ReflectionTest {
     }
 
 
+    /**
+     * Tests that we can create an instance of an arbitrary class using reflection by invoking the default constructor.
+     */
     @Test
     void createInstance() throws Exception {
         // given
@@ -98,6 +101,9 @@ public class ReflectionTest {
     }
 
 
+    /**
+     * Tests that we can create an Orca instance using reflection by invoking a constructor that takes parameters.
+     */
     @Test
     void createParameterizedInstance() throws Exception {
         // when
