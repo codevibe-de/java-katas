@@ -9,51 +9,42 @@ import java.util.List;
 public class ReflectionLogic {
 
     public static String getFullyQualifiedName(Object someObject) {
-        return someObject.getClass().getName();
+        return null;
     }
 
 
     public static String getSimpleClassName(Object someObject) {
-        return someObject.getClass().getSimpleName();
+        return null;
     }
 
 
     public static String getPackageName(Object someObject) {
-        return someObject.getClass().getPackage().getName();
-        // also possible:
-        // return someObject.getClass().getPackageName();
+        return null;
     }
 
 
     public static List<String> getDeclaredMethods(Object someObject) {
-        return Arrays.stream(someObject.getClass().getDeclaredMethods())
-                .map(Method::getName)
-                .toList();
+        return null;
     }
 
 
     public static List<String> getMethods(Object someObject) {
-        return Arrays.stream(someObject.getClass().getMethods())
-                .map(Method::getName)
-                .toList();
+        return null;
     }
 
 
     public static Constructor<?>[] getConstructors(Object someObject) {
-        return someObject.getClass().getConstructors();
+        return null;
     }
 
 
     public static <T> T createInstance(Class<T> type) {
-        try {
-            return type.getDeclaredConstructor().newInstance();
-        } catch (Exception e) {
-            throw new RuntimeException(e);
-        }
+        return null;
     }
 
 
     public static Orca createNamedOrcaInstance(String willy) throws NoSuchMethodException, InvocationTargetException, InstantiationException, IllegalAccessException {
-        return Orca.class.getDeclaredConstructor(String.class).newInstance(willy);
+        return null;
     }
+
 }
