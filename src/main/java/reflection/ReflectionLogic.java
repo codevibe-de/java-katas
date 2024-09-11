@@ -44,12 +44,8 @@ public class ReflectionLogic {
     }
 
 
-    public static <T> T createInstance(Class<T> type) {
-        try {
-            return type.getDeclaredConstructor().newInstance();
-        } catch (Exception e) {
-            throw new RuntimeException(e);
-        }
+    public static <T> T createInstance(Class<T> type) throws NoSuchMethodException, InvocationTargetException, InstantiationException, IllegalAccessException {
+        return type.getDeclaredConstructor().newInstance();
     }
 
 

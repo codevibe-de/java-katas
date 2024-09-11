@@ -88,7 +88,7 @@ public class ReflectionTest {
 
 
     @Test
-    void createInstance() {
+    void createInstance() throws Exception {
         // given
         Class<Orca> orcaClass = Orca.class;
         // when
