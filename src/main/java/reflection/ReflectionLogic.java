@@ -38,7 +38,7 @@ public class ReflectionLogic {
     }
 
 
-    public static <T> T createInstance(Class<T> type) {
+    public static <T> T createInstance(Class<T> type) throws NoSuchMethodException, InvocationTargetException, InstantiationException, IllegalAccessException {
         return null;
     }
 
