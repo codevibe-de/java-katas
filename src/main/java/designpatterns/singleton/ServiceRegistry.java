@@ -3,13 +3,9 @@ package designpatterns.singleton;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
-// https://java-design-patterns.com/patterns/singleton/#programmatic-example-of-singleton-pattern-in-java
-public enum ServiceRegistry {
-
-    INSTANCE;
+public class ServiceRegistry {
 
     private final Map<String, Runnable> services;
-
 
     ServiceRegistry() {
         this.services = new ConcurrentHashMap<>();

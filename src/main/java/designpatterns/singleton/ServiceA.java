@@ -2,8 +2,8 @@ package designpatterns.singleton;
 
 public class ServiceA implements Runnable {
 
-    public ServiceA(String serviceName) {
-        ServiceRegistry.INSTANCE.registerService(serviceName, this);
+    public ServiceA(ServiceRegistry serviceRegistry, String serviceName) {
+        serviceRegistry.registerService(serviceName, this);
     }
 
     @Override
