@@ -2,7 +2,7 @@ package designpatterns.strategy;
 
 import java.time.LocalDate;
 
-public class Letter {
+public abstract class Letter {
 
     private final String recipientFirstName;
     private final String recipientLastName;
@@ -16,8 +16,8 @@ public class Letter {
     }
 
 
-    public String generateContent(GreetingStrategy greetingStrategy) {
-        var greeting = greetingStrategy.generateGreeting(recipientFirstName, recipientLastName);
+    public String generateContent() {
+        var greeting = generateGreeting(recipientFirstName, recipientLastName);
         return """
                 %s
                 
@@ -26,4 +26,8 @@ public class Letter {
                 Take care, your Java Bot
                 """.formatted(greeting, deadline);
     }
+
+
+    public abstract String generateGreeting(String recipientFirstName, String recipientLastName);
+
 }
