@@ -2,7 +2,6 @@ package classes;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.random.RandomGenerator;
 
 @SuppressWarnings("InfiniteLoopStatement")
 public class Fridge {
@@ -13,7 +12,7 @@ public class Fridge {
 
     private final List<SensorListener> sensorListeners = new ArrayList<>();
 
-    private final ListenerManagement<SensorListener> listenerManagement = new ListenerManagementAdapter();
+    private final ListenerManagement<SensorListener> listenerManagement = new ListenerManagementAdapter(this);
 
     private final Thermostat thermostat = new Thermostat();
 
@@ -40,6 +39,9 @@ public class Fridge {
         }
     }
 
+    public List<SensorListener> getSensorListeners() {
+        return sensorListeners;
+    }
 
     public void addSensorListener(SensorListener listener) {
         listenerManagement.addListener(listener);
@@ -47,30 +49,6 @@ public class Fridge {
 
     public void removeSensorListener(SensorListener listener) {
         listenerManagement.removeListener(listener);
-    }
-
-
-    //
-    // inner interfaces and classes
-    //
-
-    public interface SensorListener {
-        void temperatureChanged(int newTemperature);
-    }
-
-
-    static class Thermostat {
-        private int measureTemperature() {
-            return RandomGenerator.getDefault().nextInt(4, 7);
-        }
-    }
-
-
-    private class ListenerManagementAdapter extends ListenerManagement<SensorListener> {
-        @Override
-        protected List<? super SensorListener> listeners() {
-            return sensorListeners;
-        }
     }
 
 }

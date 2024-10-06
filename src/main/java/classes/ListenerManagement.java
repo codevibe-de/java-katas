@@ -5,6 +5,7 @@ import java.util.Collection;
 /**
  * Provides sophisticated management of listeners wanting to subscribe to some event source, which does not
  * want to implement management itself.
+ *
  * @param <L> the type of the listener to manage
  */
 public abstract class ListenerManagement<L> {
