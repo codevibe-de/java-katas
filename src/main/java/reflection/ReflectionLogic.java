@@ -41,7 +41,7 @@ public class ReflectionLogic {
     }
 
 
-    public static Orca createNamedOrcaInstance(String willy) throws NoSuchMethodException, InvocationTargetException, InstantiationException, IllegalAccessException {
+    public static Orca createNamedOrcaInstance(String name) throws NoSuchMethodException, InvocationTargetException, InstantiationException, IllegalAccessException {
         return null;
     }
 
