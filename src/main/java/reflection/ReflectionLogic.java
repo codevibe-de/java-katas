@@ -49,7 +49,7 @@ public class ReflectionLogic {
     }
 
 
-    public static Orca createNamedOrcaInstance(String willy) throws NoSuchMethodException, InvocationTargetException, InstantiationException, IllegalAccessException {
-        return Orca.class.getDeclaredConstructor(String.class).newInstance(willy);
+    public static Orca createNamedOrcaInstance(String name) throws NoSuchMethodException, InvocationTargetException, InstantiationException, IllegalAccessException {
+        return Orca.class.getDeclaredConstructor(String.class).newInstance(name);
     }
 }
