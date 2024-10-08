@@ -1,6 +1,9 @@
 package streams;
 
+import org.junit.jupiter.api.MethodOrderer;
+import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestMethodOrder;
 
 import java.time.LocalDate;
 import java.util.Arrays;
@@ -14,11 +17,13 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static streams.Account.AccountType.CHECKING;
 import static streams.Account.AccountType.SAVINGS;
 
+@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class StreamsTest {
 
     private final StreamsLogic streamsLogic = new StreamsLogic();
 
     @Test
+    @Order(1)
     public void shouldMapStringsToUpperCase() {
         List<String> input = asList("This", "is", "java", "8");
         List<String> result = streamsLogic.mapToUppercase(input);
@@ -26,6 +31,7 @@ public class StreamsTest {
     }
 
     @Test
+    @Order(2)
     public void shouldRemoveElementsWithMoreThanThreeCharacters() {
         List<String> input = asList("This", "is", "java", "8");
         List<String> result = streamsLogic.removeElementsWithFourOrMoreCharacters(input);
@@ -33,6 +39,7 @@ public class StreamsTest {
     }
 
     @Test
+    @Order(3)
     public void shouldSortStrings() throws Exception {
         List<String> input = Arrays.asList("C", "F", "A", "D", "B", "E");
         Stream<String> result = streamsLogic.sortStrings(input);
@@ -40,6 +47,7 @@ public class StreamsTest {
     }
 
     @Test
+    @Order(4)
     public void shouldSortIntegers() throws Exception {
         List<String> input = Arrays.asList("2", "4", "12", "3");
         List<Integer> result = streamsLogic.sortIntegers(input);
@@ -47,6 +55,7 @@ public class StreamsTest {
     }
 
     @Test
+    @Order(5)
     public void shouldSumIntegersInCollection() {
         List<Integer> input = asList(1, 2, 3, 4, 5);
         Integer result = streamsLogic.sum(input);
@@ -54,6 +63,7 @@ public class StreamsTest {
     }
 
     @Test
+    @Order(6)
     public void shouldSortListsOfIntegersInDescendingOrder() throws Exception {
         List<String> input1 = Arrays.asList("12", "3");
         List<String> input2 = Arrays.asList("99", "2", "4");
@@ -62,6 +72,7 @@ public class StreamsTest {
     }
 
     @Test
+    @Order(7)
     public void shouldTransformIntoIntStream() {
         Integer[] input1 = new Integer[]{2, 3, 5, 7, 11};
         int numbersFrom = 100;
@@ -71,6 +82,7 @@ public class StreamsTest {
     }
 
     @Test
+    @Order(8)
     public void shouldCalculateDigitSum() {
         Integer input = 123456;
         Integer result = streamsLogic.calculateDigitSum(input);
@@ -91,6 +103,7 @@ public class StreamsTest {
     );
 
     @Test
+    @Order(9)
     void filterAndMap() {
         var accountNumbers = streamsLogic.getCheckingAccountWithNegativeBalance(accounts);
         assertThat(accountNumbers).hasSize(2);
@@ -98,6 +111,7 @@ public class StreamsTest {
     }
 
     @Test
+    @Order(10)
     void shouldGroupByHolder() {
         Map<Person, List<Account>> accountsByHolder = streamsLogic.groupByHolder(accounts);
         assertThat(accountsByHolder).containsKeys(stevePresso, carlCox);
