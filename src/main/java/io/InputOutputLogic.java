@@ -23,8 +23,8 @@ public class InputOutputLogic {
     }
 
 
-    public static String decodeUsing(byte[] bytes, Charset charset) {
-        return new String(bytes, charset);
+    public static Charset getCharset() {
+        return StandardCharsets.UTF_16;
     }
 
 }
