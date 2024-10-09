@@ -17,6 +17,10 @@ public class InputOutputLogic {
     /**
      * Returns a string of space-separated hex values (e.g. "2A FF 30") that represent
      * the UTF-8 bytes for the text "abc ä €".
+     *
+     * @see <a href="https://www.utf8-zeichentabelle.de/unicode-utf8-table.pl">char table</a>
+     *
+     * NOTE the linked page above allows to SWITCH THE BLOCK of characters! You will also need "Currency symbols"!!!
      */
     public static String getHexString() {
         return null;
