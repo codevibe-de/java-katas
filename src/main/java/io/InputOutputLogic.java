@@ -1,10 +1,7 @@
 package io;
 
-import org.assertj.core.api.Assertions;
-
 import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
-import java.util.Base64;
 
 public class InputOutputLogic {
 
@@ -26,8 +23,8 @@ public class InputOutputLogic {
     }
 
 
-    public static String decodeUsing(byte[] bytes, Charset charset) {
-        return new String(bytes, charset);
+    public static Charset getCharset() {
+        return StandardCharsets.UTF_16;
     }
 
 }
