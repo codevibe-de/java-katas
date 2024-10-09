@@ -1,12 +1,15 @@
 package sort_compare;
 
-import org.assertj.core.api.Assertions;
+import org.junit.jupiter.api.MethodOrderer;
+import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestMethodOrder;
 
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 class SortAndCompareLogicTest {
 
     List<Song> songs = List.of(
@@ -20,6 +23,7 @@ class SortAndCompareLogicTest {
     private final SortAndCompareLogic sortAndCompareLogic = new SortAndCompareLogic();
 
     @Test
+    @Order(1)
     void sortInNaturalOrder() {
         List<Song> sorted = sortAndCompareLogic.sortInNaturalOrder(songs);
         assertThat(sorted).isNotNull();
@@ -33,7 +37,8 @@ class SortAndCompareLogicTest {
 
 
     @Test
-    void sortByTitle() {
+    @Order(2)
+    void sortByArtist() {
         List<Song> sorted = sortAndCompareLogic.sortByArtist(songs);
         assertThat(sorted).isNotNull();
         assertThat(sorted).hasSize(5);
@@ -46,6 +51,7 @@ class SortAndCompareLogicTest {
 
 
     @Test
+    @Order(3)
     void sortByIsrcCountryCodeThenYear() {
         List<Song> sorted = sortAndCompareLogic.sortByIsrcCountryCodeThenYear(songs);
         assertThat(sorted).isNotNull();
