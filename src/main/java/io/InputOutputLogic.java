@@ -1,10 +1,7 @@
 package io;
 
-import org.assertj.core.api.Assertions;
-
 import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
-import java.util.Base64;
 
 public class InputOutputLogic {
 
@@ -13,7 +10,7 @@ public class InputOutputLogic {
      * See {@link StandardCharsets}
      */
     public static byte[] encodeAsUtf8(String s) {
-        return s.getBytes(StandardCharsets.UTF_8);
+        return null;
     }
 
 
@@ -22,7 +19,7 @@ public class InputOutputLogic {
      * the UTF-8 bytes for the text "abc ä €".
      */
     public static String getHexString() {
-        return "61 62 63 20 C3 A4 20 E2 82 AC";
+        return null;
     }
 
 
