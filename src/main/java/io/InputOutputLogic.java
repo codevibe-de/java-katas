@@ -24,7 +24,7 @@ public class InputOutputLogic {
 
 
     public static Charset getCharset() {
-        return StandardCharsets.UTF_16;
+        return null;
     }
 
 }
