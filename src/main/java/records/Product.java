@@ -8,14 +8,25 @@ public record Product(
         int priceInCents
 ) implements Comparable<Product> {
 
-    @Override
-    public int compareTo(Product that) {
-        return Comparator.comparingInt(Product::priceInCents)
-                .thenComparing(Comparator.comparing(Product::name))
-                .compare(this, that);
+    public Product {
+        if (name == null || name.isBlank()) {
+            throw new IllegalArgumentException("Name must not be null or blank");
+        }
+        if (priceInCents < 0) {
+            throw new IllegalArgumentException("Price must not be less than 0");
+        }
     }
 
     public Product(long id) {
         this(id, "", 0);
     }
+
+
+    @Override
+    public int compareTo(Product that) {
+        return Comparator.comparingInt(Product::priceInCents)
+                .thenComparing(Product::name)
+                .compare(this, that);
+    }
+
 }
