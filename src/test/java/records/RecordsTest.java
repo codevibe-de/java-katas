@@ -76,6 +76,17 @@ public class RecordsTest {
     }
 
 
+    @Test
+    @Order(6)
+    @DisplayName("6. The record constructor prevents creating a product with a price less than 0 cents")
+    void constructorChecksPrice() {
+        Assertions.assertThrows(
+                IllegalArgumentException.class,
+                () -> new Product(123, "Test", -1)
+        );
+    }
+
+
     private RecordComponent getRecordComponent(Class<?> clazz, String name) {
         return Arrays.stream(clazz.getRecordComponents())
                 .filter(rc -> rc.getName().equals(name))
