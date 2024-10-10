@@ -1,5 +1,7 @@
 package records;
 
+import java.util.Comparator;
+
 public record Product(
         long id,
         String name,
@@ -8,7 +10,9 @@ public record Product(
 
     @Override
     public int compareTo(Product that) {
-        return Long.compare(this.id, that.id);
+        return Comparator.comparingInt(Product::priceInCents)
+                .thenComparing(Comparator.comparing(Product::name))
+                .compare(this, that);
     }
 
     public Product(long id) {

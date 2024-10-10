@@ -56,11 +56,11 @@ public class RecordsTest {
 
     @Test
     @Order(4)
-    @DisplayName("4. The record implements the compareTo() method correctly")
+    @DisplayName("4. The record implements the compareTo() method by comparing the price first and then by name")
     void compareTo() {
         // uncomment:
-        Product p1 = new Product(100, "Light Sabre", 599);
-        Product p2 = new Product(592, "TIE Advanced", 2599);
+        Product p1 = new Product(100, "Light Sabre", 2599);
+        Product p2 = new Product(92, "TIE Advanced", 2599);
         assertThat(p1).isLessThan(p2);
         assertThat(p2).isGreaterThan(p1);
     }
