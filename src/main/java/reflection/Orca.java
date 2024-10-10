@@ -1,10 +1,7 @@
 package reflection;
 
-import net.bytebuddy.utility.nullability.MaybeNull;
-
 public class Orca extends Whale {
 
-    @MaybeNull
     private final String name;
 
     public Orca() {
