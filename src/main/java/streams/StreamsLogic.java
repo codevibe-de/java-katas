@@ -46,7 +46,7 @@ public class StreamsLogic {
         return null;
     }
 
-    public Set<String> getCheckingAccountWithNegativeBalance(List<Account> accounts) {
+    public Set<String> getCheckingAccountNumbersWithNegativeBalance(List<Account> accounts) {
         return null;
     }
 

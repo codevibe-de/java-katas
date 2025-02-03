@@ -21,6 +21,7 @@ public class LambdasLogic {
     public void performTransformationPipeline(Supplier<Integer> supplier, Predicate<Integer> predicate, Consumer<Integer> consumer) {
     }
 
+    // returns a reference to the repeatString method below
     public BiFunction<String, Integer, String> getStringRepeaterMethodReference() {
         return null;
     }

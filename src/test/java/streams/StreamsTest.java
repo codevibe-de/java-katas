@@ -105,7 +105,7 @@ public class StreamsTest {
     @Test
     @Order(9)
     void filterAndMap() {
-        var accountNumbers = streamsLogic.getCheckingAccountWithNegativeBalance(accounts);
+        var accountNumbers = streamsLogic.getCheckingAccountNumbersWithNegativeBalance(accounts);
         assertThat(accountNumbers).hasSize(2);
         assertThat(accountNumbers).containsOnly("88332201", "77711100");
     }
