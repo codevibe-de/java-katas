@@ -30,6 +30,7 @@ public class LambdasLogic {
         }
     }
 
+    // returns a reference to the repeatString method below
     public BiFunction<String, Integer, String> getStringRepeaterMethodReference() {
         return this::repeatString;
     }

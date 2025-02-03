@@ -55,7 +55,7 @@ class LambdasLogicTest {
 
     @Test
     void shouldUseMethodReference() {
-        BiFunction<String, Integer, String> result = lambdasLogic.getStringRepeaterMethodReference(); // todo
+        BiFunction<String, Integer, String> result = lambdasLogic.getStringRepeaterMethodReference();
         assertThat(result).isNotNull();
         var output = result.apply("-", 5);
         assertThat(output).isEqualTo("-----");

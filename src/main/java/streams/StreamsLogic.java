@@ -63,7 +63,7 @@ public class StreamsLogic {
                 .reduce(0, Integer::sum);
     }
 
-    public Set<String> getCheckingAccountWithNegativeBalance(List<Account> accounts) {
+    public Set<String> getCheckingAccountNumbersWithNegativeBalance(List<Account> accounts) {
         return accounts.stream()
                 .filter(a -> a.type() == Account.AccountType.CHECKING)
                 .filter(a -> a.balance() < 0)
